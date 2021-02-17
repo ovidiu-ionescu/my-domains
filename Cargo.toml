@@ -1,0 +1,20 @@
+[package]
+name = "my-domains"
+version = "0.1.0"
+authors = ["Ovidiu Ionescu <ovidiu@ionescu.net>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# use the async fork until the PR gets accepted
+whois-rust = { git = "https://github.com/wladwm/whois-rust.git", branch = "master", features=["async"] }
+#whois-rust = "1.2.3"
+askama = "0.8"
+hyper={ version="*", features = ["full"] }
+futures = "0.3"
+tokio = { version="*", features = ["full"] }
+pretty_env_logger = "*"
+config = "*"
+lazy_static = "*"
+itertools = "*"
