@@ -12,7 +12,7 @@ pub struct DomainInfo {
 
 impl DomainInfo {
     pub async fn fetch_info(config_domains: &[String]) -> Vec<DomainInfo> {
-        let whois = WhoIs::from_path("./servers.json").unwrap();
+        let whois = WhoIs::from_path("./servers.json").expect("Failed to open ./servers.json to read whois servers");
 
         let mut domains: Vec<&String> = config_domains.iter().collect();
         domains.sort_by(|a, b| ext(&a).cmp(ext(&b)));
