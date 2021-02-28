@@ -35,12 +35,6 @@ impl ApConfig {
     }
 }
 
-/*
-fn do_work() -> Result<String, Box<dyn std::error::Error + Send + Sync>> {
-    let domains = fetch_whois::DomainInfo::fetch_info();
-    render::render(&domains)
-}
-*/
 async fn do_work() -> String {
     let domains = fetch_whois::DomainInfo::fetch_info(&CONFIG.domains).await;
     render::render(&domains).unwrap()
